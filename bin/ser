@@ -1,0 +1,23 @@
+#!/usr/bin/env ruby
+
+require 'ser'
+
+help = <<EOS
+Usage: ser COMMAND [ARGS]
+
+Commands:
+  start [PROCESS NAMES]   # Start all processes (or specific processes)
+  stop [PROCESS NAMES]    # Stop all processes (or specific processes)
+  restart [PROCESS NAMES] # Restart all processes (or specific processes)
+  status [PROCESS NAMES]  # Show all processes status (or specific processes)
+EOS
+
+cli = Ser::CLI.new
+
+command = ARGV.shift
+
+if command.nil? || !cli.respond_to?(command)
+  puts help
+else
+  cli.send command, ARGV
+end
