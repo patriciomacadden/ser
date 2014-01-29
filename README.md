@@ -60,7 +60,7 @@ sidekiq: started (2626)
 Or see their status:
 
 ```bash
-$ bundle exec ser restart
+$ bundle exec ser status
 web: running (2625)
 sidekiq: running (2626)
 ```
